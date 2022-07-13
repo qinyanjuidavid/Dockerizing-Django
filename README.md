@@ -18,5 +18,17 @@ Learning Docker using Tech with Nana tutorial.
 
 ### Docker Image and Docker Container
 
-- Docker Image - is the actual package.In other terms it is the artifact that can be moved around eg.postgres.
-- Docker Container - actually start the application. Container is where the environment of an application is created.
+- Docker Image - is the actual package.In other terms it is the artifact that can be moved around eg.postgres
+- Docker Container - actually start the application Container is where the environment of an application is created
+
+### Docker vs Virtual Machine
+
+- An Operating system is made up of the Appplications, Os Kernel and Hardware Layer
+
+- Operating System Kernel communicates with the Hardware Layer like CPU,memory,etc
+- Applications run on the Application Layer
+- Docker virtualizes the applications layer. It uses the Kernel of the host because it does not have its own Kernel
+- VM virtualizes the Applications layer and the Operating System Kernel. When you install the Virtual Machine Image it boots its own kernel and does not use the host Kernel
+  1. Docker Images are much small the VM are large in size
+  2. Docker containers start and run much fast than the VM, since each time you start a VM it has to boot it's own kernel
+  3. VM of any OS can run on any Operating System host but that can't happen with docker.
