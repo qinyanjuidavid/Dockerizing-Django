@@ -98,4 +98,6 @@
 
 ### Dockerizing Django
 
-- `docker-compose run web django-admin startproject src .`
+- `docker-compose run web django-admin startproject src .` Starting the project
+- `docker-compose up` to run the project
+- `docker-compose down` To stop the project
