@@ -20,6 +20,9 @@ Learning Docker using Tech with Nana tutorial.
 
 - Docker Image - is the actual package.In other terms it is the artifact that can be moved around eg.postgres
 - Docker Container - actually start the application Container is where the environment of an application is created
+- Container is a running environment for Image
+- Application images include: postgres,regis, mongodb
+- Containers have a port binded to it. A port enables the applications running inside the container to talk to each other
 
 ### Docker vs Virtual Machine
 
@@ -32,3 +35,28 @@ Learning Docker using Tech with Nana tutorial.
   1. Docker Images are much small the VM are large in size
   2. Docker containers start and run much fast than the VM, since each time you start a VM it has to boot it's own kernel
   3. VM of any OS can run on any Operating System host but that can't happen with docker.
+
+### Docker Installation
+
+- Docker Toolbox helps check the machine compactibility. Docker Toolbox helps run docker natively.
+
+### Basic Docker Commands
+
+- `docker pull nameOfImage` or `docker pull namerOfImage:7.0.3` To pull image from docker hub to the local machine
+- `docker images` Used when checking all the images on the local machine
+- `docker run redis` Creates a container where redis is running and can be used in an application
+- `docker ps` used to check the containers that are running locally
+- `docker run -d redis` Used to run a container a dettached mode. Meaning that the container will run even after closing the terminal
+- `docker stop idOfTheContainer` The id is the first part you view when you use the `docker ps` command
+- `docker start idOfTheContainer` You can use the same id as above to start the container
+- `docker ps -a` To see all the containers that are running of not running
+- `docker run -p 6000:6379 redis` or `docker run -d -p 6000:6379 redis' to be able to run two containers that uses the same port
+  - `-p` is the port
+  - `6000` is the host port
+  - `6379` container port
+
+### Container Ports Vs Host Port
+
+- Multiple Containers can run on your host machine
+- Conflict when same port on host machine
+- The applications can't be able to reach the containers using same port
