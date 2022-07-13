@@ -1,6 +1,6 @@
 # Docker-Learning
 
-Learning Docker using Tech with Nana tutorial.
+> Learning Docker using Tech with Nana tutorial
 
 ## Docker
 
@@ -54,9 +54,18 @@ Learning Docker using Tech with Nana tutorial.
   - `-p` is the port
   - `6000` is the host port
   - `6379` container port
+- `docker run -d -p 6001:6379 --name redis-older redis:7.0.3` Naming the container for instance redis-older
 
 ### Container Ports Vs Host Port
 
 - Multiple Containers can run on your host machine
 - Conflict when same port on host machine
 - The applications can't be able to reach the containers using same port
+
+### Debugging Containers
+
+- `docker logs containerID/conteinerName` to check the logs of the container
+- `docker exec -it containerID/containerName /bin/bash`
+  - `it` Interactive terminal
+
+### Demo Project Overview
