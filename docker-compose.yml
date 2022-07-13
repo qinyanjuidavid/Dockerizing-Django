@@ -1,6 +1,11 @@
 version: "3.9"
 
 services:
+  redis:
+    image: redis
+    command: redis-server
+    ports:
+      - "14000:6379"
   db:
     image: postgres
     volumes:
@@ -22,3 +27,4 @@ services:
       - POSTGRES_PASSWORD=postgres
     depends_on:
       - db
+      - redis

@@ -101,3 +101,6 @@
 - `docker-compose run web django-admin startproject src .` Starting the project
 - `docker-compose up` to run the project
 - `docker-compose down` To stop the project
+- `docker build --tag src .` If the project exists
+- `docker run --publish 8000:8000 src`
+- `docker-compose up -d --build` Spins up the application allowing for changes to be accepted
