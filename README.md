@@ -95,3 +95,7 @@
     - Postgres Password
     - Postgres User
   - `-d` running the container in dettache mode
+
+### Dockerizing Django
+
+- `docker-compose run web django-admin startproject src .`
