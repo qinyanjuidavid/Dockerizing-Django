@@ -69,3 +69,29 @@
   - `it` Interactive terminal
 
 ### Demo Project Overview
+
+- Postgres/Mongo DB- Push to Git where Jenkins Builds Django App and Creates Docker Image
+- The Docker image built by Jenkins is pushed to a private docker repository
+- The Docker image is pulled to the development server where they talk to each other with the django app
+
+### Developing with Containers
+
+- Hands on Code
+
+### Docker Network
+
+- Docker creates it's own isolated network where the containers are running
+- Those containers can talk to each other using container name
+- `docker network ls` shows auto generated networks
+- 'docker network create mongo-network' creating a docker network
+- `docker network rm NameOfTheNetwork` To delete a network
+
+### Docker Postgres
+
+- `docker run --name some-postgres --network postgres-network -e POSTGRES_PASSWORD=nonerd -e POSTGRES_USER=day -d postgres`
+  - `--name (som-postgres)` name of the container
+  - `--network (postgres-network)` name of the network
+  - `-e` Environment Variables
+    - Postgres Password
+    - Postgres User
+  - `-d` running the container in dettache mode
