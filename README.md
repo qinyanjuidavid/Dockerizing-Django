@@ -100,3 +100,25 @@
 - `docker build --tag src .` If the project exists
 - `docker run --publish 8000:8000 src`
 - `docker-compose up -d --build` Spins up the application allowing for changes to be accepted
+
+### Docker Compose
+
+- `version: "3.9"` - Version of docker-compose
+- `Services:` Container list goes here
+- `mongodb:` The container name
+- `image: mongo:4.1` The image from which the container is going to be build from
+
+- ```ports:
+        - 27017:27017
+        # Ports of the Host:container
+  ```
+
+- ```environment:
+       - MONGO_USERNAME=admin
+       - MONGO_PASSWORD=secretpassword
+       # The environment variables of a container
+  ```
+
+- `depends_on` specifies that a container is depending on another container in order to start
+- Docker Compose takes care of creating a common Network!
+- `docker-compose -f docker-compose.yml up` Used to execute the docker compose script
