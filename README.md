@@ -12,7 +12,7 @@
 - `docker pull postgres` In order to pull the an image from the public repository, You can specify the version `docker pull postgres:14.4`
 - `docker ps` To view the number image running locally
 
-### Docker Image and Docker Container
+## Docker Image and Docker Container
 
 - Docker Image - is the actual package.In other terms it is the artifact that can be moved around eg.postgres
 - Docker Container - actually start the application Container is where the environment of an application is created
@@ -79,7 +79,7 @@
 - Docker creates it's own isolated network where the containers are running
 - Those containers can talk to each other using container name
 - `docker network ls` shows auto generated networks
-- 'docker network create mongo-network' creating a docker network
+- `docker network create mongo-network` creating a docker network
 - `docker network rm NameOfTheNetwork` To delete a network
 
 ### Docker Postgres
@@ -103,22 +103,50 @@
 
 ### Docker Compose
 
+#### Syntax
+
 - `version: "3.9"` - Version of docker-compose
 - `Services:` Container list goes here
 - `mongodb:` The container name
 - `image: mongo:4.1` The image from which the container is going to be build from
 
-- ```ports:
-        - 27017:27017
-        # Ports of the Host:container
+- ```YAML
+  ports:
+    - 27017:27017
+      # Ports of the Host:container
   ```
 
-- ```environment:
-       - MONGO_USERNAME=admin
-       - MONGO_PASSWORD=secretpassword
-       # The environment variables of a container
+- ```YAML
+  environment:
+    - MONGO_USERNAME=admin
+    - MONGO_PASSWORD=secretpassword
+      # The environment variables of a container
   ```
 
 - `depends_on` specifies that a container is depending on another container in order to start
 - Docker Compose takes care of creating a common Network!
 - `docker-compose -f docker-compose.yml up` Used to execute the docker compose script
+
+### Docker File
+
+- A DockerFile is a blueprint for building images
+- `FROM node` This is the base image which our container is build from
+
+- ```YAML
+    ENV PYTHONDONTWRITEBYTECODE=1
+    ENV PYTHONUNBUFFERED=1
+       # Optional environment variables
+  ```
+
+- `RUN mkdir -p /home/app` Executes any Linux command, for instance creating home directory. This directory is going to live inside the container
+- `COPY . /home/app/` executes on the host machine. It copies files from host to container
+- `CMD ["node","server.js"]` executes a run command
+- `CMD` is an entry point command
+- `docker build --tag/-t src:1.0 .` builds a docker image frok the _Dockerfile_
+- `docker run src:1.0` running our app from the build image
+- Whenever you adjust the Dockerfile, you must rebuid the image!
+- `docker rmi imageID` to delete an image and `docker rm <containerID>` to delete a container
+
+### Private Docker Registry
+
+- `docker login --username=_ --password=$(heroku auth:token) registry.heroku.com`
